@@ -5,8 +5,8 @@
    Tutorial 12
    Case Problem 3
 
-   Author: 
-   Date:   
+   Author: Millione Johnson
+   Date: 4/8/19  
 
    Filename: js_tree.js
 
@@ -20,7 +20,7 @@
    wsCount
       Running count of all white space text nodes in the source document
 
-
+　
    Functions List:
    makeTree() 
       Sets up and places the node tree within the HTML document and
@@ -37,6 +37,30 @@
       node and false if it doesn't
 */
 
+var nodeCount = 0;
+var elemCount = 0;
+var textCount = 0;
+var wsCount = 0;
+
+window.addEventListener("load", makeTree);
+
+function makeTree() {
+      var asideElement = document.createElement("aside");
+      asideElement.id = "treeBox";
+      treeBox.innerHTML = "<h1>Node Tree</h1>";
+      var sectionElement = document.getElementById("main");
+      sectionElement.appendChild(asideElement);
+      var nodeList = ["ol"];
+      asideElement.appendChild(nodeList);
+      var sourceArticle = document.querySelector("#mainarticle");
+      mainArticle.appendChild(sourceArticle);
+
+      makeBranches(sourceArticle, nodeList);
+}
+
+function makeBranches(treeNode, nestedList) {
+      nodeCount++;
+}
 
 
 
@@ -44,5 +68,5 @@
 
 
 function isWhiteSpaceNode(tString) {
-   return !(/[^\t\n\r ]/.test(tString));
+      return !(/[^\t\n\r ]/.test(tString));
 }
