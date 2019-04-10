@@ -47,21 +47,31 @@ window.addEventListener("load", makeTree);
 function makeTree() {
       var asideElement = document.createElement("aside");
       asideElement.id = "treeBox";
-      treeBox.innerHTML = "<h1>Node Tree</h1>";
+      asideElement.innerHTML = "<h1>Node Tree</h1>";
+
       var sectionElement = document.getElementById("main");
       sectionElement.appendChild(asideElement);
-      var nodeList = ["ol"];
+
+      var nodeList = document.createElement("ol");
       asideElement.appendChild(nodeList);
       var sourceArticle = document.querySelector("#mainarticle");
-      mainArticle.appendChild(sourceArticle);
+
 
       makeBranches(sourceArticle, nodeList);
 }
 
 function makeBranches(treeNode, nestedList) {
       nodeCount++;
-}
+      var liElem = document.createElement("li");
+      liElem.innerHTML += "+--";
+      var spanElem = document.createElement("span");
+      spanElem.appendChild(liElem);
+      liElem.appendChild(nestedList);
 
+      if (treeNode.nodeType === 1) {
+        elemCount++;
+      }
+}
 
 
 
